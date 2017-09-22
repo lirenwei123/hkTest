@@ -1,0 +1,76 @@
+{
+    "UIColor": {
+        "背景颜色一": "#252528",
+        "背景颜色二": "#202022",
+        "背景颜色三": "#313135",
+        "登录背景颜色": "#000000",
+        "ident3": "#969696",
+        "ident4": "#C8C8C8",
+        "ident5": "#252528",
+        "导航颜色": "#202022",
+        "分割线": "#2a2a2a",
+        "背景颜色三(灰)": "#202022",
+        "添加新账号": "#4D95EA",
+        "PlaceHolderCOlor": "#252528",
+        "账号管理按钮颜色": "#202022",
+        "账号管理按钮背景色": "#FFFFFA",
+        "股票代码搜索字体颜色": "#3085BD",
+        "自选删除按钮颜色": "#FB3F39",
+        
+        "行情列表股票名称": "#D3D3D4",
+        "行情列表股票代码": "#7E7E7E",
+        "行情增长" : "#E62A33" ,
+        "行情下跌" : "#30A431" ,
+        "行情持平" : "#D3D3D4",
+        "公共字体" : "#D3D3D4",
+        "列表头视图": "#202022",
+        "分时行情标题": "#C6C6C6",
+        "白色":"#D3D3D4",
+        "TabBar_bgColor":"#1C1C20",
+    },
+    "UIImage": {
+        "xiadan_buy_sub_clicked": "xiadan_buy_sub_clicked.png",
+        "xiadan_buy_add_clicked": "xiadan_buy_add_clicked.png",
+        "xiadan_sell_add_clicked": "xiadan_sell_add_clicked.png",
+        "xiadan_sell_sub_clicked": "xiadan_sell_sub_clicked.png",
+        "xiadan_buy_field": "xiadan_buy_field.png",
+        "ChangeToNormalTheme@2x": "ChangeToNightTheme_Selected@2x",
+        "ChangeToNormalTheme_Selected@2x": "ChangeToNightTheme_Selected@2x",
+        
+        "wt_buy_highlight@2x": "wt_buy_highlight_night@2x.png",
+        "wt_buy@2x": "wt_buy_night@2x.png",
+        "wt_cancellation_highlight@2x": "wt_cancellation_highlight_night@2x.png",
+        "wt_cancellation@2x": "wt_cancellation_night@2x.png",
+        "wt_check_highlight@2x": "wt_check_highlight_night@2x.png",
+        "wt_check@2x": "wt_check_night@2x.png",
+        "wt_position_highlight@2x": "wt_position_highlight_night@2x.png",
+        "wt_position@2x": "wt_position_night@2x.png",
+        "wt_sell_highlight@2x": "wt_sell_highlight_night@2x.png",
+        "wt_sell@2x": "wt_sell_night@2x.png",
+        "分时行情背景":"qiquanbaojia_bg_night.png",
+        
+        "xiadan_QuickBuy":"xiadan_QuickBuy_night.png",
+        "xiadan_QuickBuy_Clicked":"xiadan_QuickBuy_Clicked_night.png",
+        "xiadan_QuickSell":"xiadan_QuickSell_night.png",
+        "xiadan_QuickSell_Clicked":"xiadan_QuickSell_Clicked_night.png",
+        "xiadan_CheDanChaXun":"xiadan_CheDanChaXun_night.png",
+        "xiadan_CheDanChaXun_Clicked":"xiadan_CheDanChaXun_Clicked_night.png",
+        
+        "xiadan_buy_add":"xiadan_buy_add_night.png",
+        "xiadan_buy_sub":"xiadan_buy_sub_night.png",
+        "xiadan_sell_add":"xiadan_sell_add_night.png",
+        "xiadan_sell_sub":"xiadan_sell_sub_night.png",
+        "xiadan_buy_add_clicked":"xiadan_buy_add_clicked_night.png",
+        "xiadan_buy_sub_clicked":"xiadan_buy_sub_clicked_night.png",
+        "xiadan_sell_add_clicked":"xiadan_sell_add_clicked_night.png",
+        "xiadan_sell_sub_clicked":"xiadan_sell_sub_clicked_night.png",
+        
+        "hq_qt_btn_bg":"hq_qt_btn_bg_night",
+        "下单持仓图片":"whitePlaceArrow.png",
+        
+
+    },
+    "NSString": {
+        "背景颜色二": "黑色文本"
+    }
+}
