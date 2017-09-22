@@ -8,9 +8,17 @@
 
 #import "MyExtendView.h"
 #import "myBtn.h"
+#import "Masonry.h"
+
 #define btnW  40
 #define btnH   60
-#define MARGIN  (self.frame.size.width-3*btnW)*0.25
+
+#define MARGIN  ([UIScreen mainScreen].bounds.size.width-3*btnW)*0.25
+
+
+@interface MyExtendView ()
+@property(nonatomic,strong)NSMutableArray *btns;
+@end
 
 @implementation MyExtendView
 
@@ -59,7 +67,6 @@
                 }
             } andbtnType:BTNTYPHQ];
             _hqUpDownBtn = btn;
-            
             [self addSubview:btn];
         }else{
             myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
@@ -68,7 +75,6 @@
                     weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
                 }
             } andbtnType:BTNTYPEUD];
-            
             [self addSubview:btn];
         }
         
@@ -76,6 +82,7 @@
 }
 
 -(void)addJRDDExtendView  {
+     __weak  typeof(self)  weakSelf = self;
     for (int i=0; i<3; i++) {
         NSString *title = @"";
         switch (i) {
@@ -91,7 +98,7 @@
             default:
                 break;
         }
-        __weak  typeof(self)  weakSelf = self;
+       
         if (i == 0) {
             myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
                 NSLog(@"----------%@:%@---%@",btn.lab.text,self.path,self.model);
@@ -108,15 +115,16 @@
                     weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
                 }
             } andbtnType:BTNTYPEUD];
-            
             [self addSubview:btn];
         }
         
     }
-    //
-    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, btnH+5, self.bounds.size.width, 2)];
+    
+   
+    UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, btnH+5, [UIScreen mainScreen].bounds.size.width, 2)];
     line.backgroundColor =  [UIColor lightGrayColor];
     [self addSubview:line];
+   
     if (_jrddModels.count>0 ) {
         for (int i=0; i<_jrddModels.count; i++) {
             JRDDealdDetailView *v =[JRDDealdDetailView dealdDetailView];
@@ -127,6 +135,8 @@
     }
     
 }
+
+
 
 
 

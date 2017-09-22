@@ -77,8 +77,8 @@
             [self.rightV registerNib:[UINib nibWithNibName:NSStringFromClass([myCocell class]) bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:@"co"];
         [_leftSubView removeFromSuperview];
         _leftSubView = nil;
-        _leftLable = [[UILabel alloc]initWithFrame:_leftView.bounds];
-        _leftLable.textAlignment = NSTextAlignmentCenter;
+        _leftLable = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, _leftView.bounds.size.width-10, _leftView.bounds.size.height)];
+        _leftLable.textAlignment = NSTextAlignmentLeft;
         _leftLable.font = [UIFont systemFontOfSize:13];
         [_leftView addSubview:_leftLable];
        
@@ -137,6 +137,8 @@
         }
         if (indexPath.row == 0) {
             cell.coLab.textAlignment = NSTextAlignmentLeft;
+        }else{
+            cell.coLab.textAlignment =NSTextAlignmentRight;
         }
         return cell;
         
@@ -223,7 +225,7 @@
         _leftSubView.frame =  CGRectMake(0, 0, _leftView.bounds.size.width, height);
     }
     if (_leftLable) {
-        _leftLable.frame = CGRectMake(0, 0, _leftView.bounds.size.width, height);
+        _leftLable.frame = CGRectMake(10, 0, _leftView.bounds.size.width-10, height);
     }
     
 }

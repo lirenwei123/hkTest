@@ -7,6 +7,9 @@
 //
 
 #import "myBtn.h"
+#import <objc/message.h>
+#import "HKTraderHomePageViewController.h"
+
 
 @interface myBtn ()
 @property(nonatomic,strong)UIImage * disableIMG;
@@ -81,10 +84,18 @@
         [sender setTitle:@"v" forState:UIControlStateNormal];
         sender.tag = 101;
        //用代理去处理事物
+        HKTraderHomePageViewController *vc = objc_getAssociatedObject(self, @"key");
+        if (vc) {
+            objc_msgSend(vc, @selector(zhankaiHQ:),self);
+        }
     }else{
         [sender setTitle:@"^" forState:UIControlStateNormal];
         sender.tag = 100;
          //用代理去处理事物
+        HKTraderHomePageViewController *vc = objc_getAssociatedObject(self, @"key");
+        if (vc) {
+            objc_msgSend(vc, @selector(shouqiHQ));
+        }
     }
 }
 

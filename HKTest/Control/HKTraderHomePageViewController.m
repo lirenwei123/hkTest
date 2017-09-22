@@ -22,6 +22,7 @@
 #import "JYSelectMedu.h"
 #import "JRDDCountDetailView.h"
 #import "NSMutableAttributedString+addImg.h"
+#import <objc/runtime.h>
 #define SW [UIScreen mainScreen].bounds.size.width
 #define SH [UIScreen mainScreen].bounds.size.height
 
@@ -293,17 +294,19 @@
                 cell.extendV.frame = frame;
             }
             cell.extendV.hidden = NO;
+            objc_setAssociatedObject(cell.extendV.hqUpDownBtn, @"key", self, OBJC_ASSOCIATION_RETAIN);
         }else{
             
             CGRect frame = cell.extendV.frame;
             frame.size.height = 0;
-            cell.extendV.frame = frame;
             cell.extendV.hidden = YES;
+            cell.extendV.frame = frame;
             
     }
         cell.delegate = self;
         cell.indexPath = indexPath;
         cell.rightV.contentOffset = _initOffset;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         return cell;
         
@@ -787,6 +790,30 @@
         vc.modalTransitionStyle = UIModalTransitionStylePartialCurl;
         [self presentViewController:vc animated:YES completion:nil];
     }
+}
+//点击行情按钮上的展开图标后展开行情走势
+-(void)zhankaiHQ:(myBtn *)btn{
+   CGPoint p = btn.frame.origin;
+    CGPoint needPoint = [btn.superview convertPoint:p toView:_mainTab];
+    UIView *hq = [[UIView alloc]initWithFrame:CGRectMake(0, needPoint.y-200, self.view.bounds.size.width, 200)];
+    hq.backgroundColor = [UIColor grayColor];
+    [_mainTab addSubview:hq];
+    hq.tag = 99;
+    
+    //如果在顶部被遮住处理
+    p = hq.frame.origin;
+    needPoint = [_mainTab convertPoint:p toView:self.view];
+    if (needPoint.y<20) {
+        CGPoint curentoffset = _mainTab.contentOffset;
+            [_mainTab setContentOffset:CGPointMake(0, curentoffset.y- 22+needPoint.y) animated:YES];
+    }
+    _mainTab.scrollEnabled = NO;
+}
+//点击行情按钮上的收起图标后收起行情走势
+-(void)shouqiHQ{
+    UIView *hq =[_mainTab viewWithTag:99];
+    [hq removeFromSuperview];
+    _mainTab.scrollEnabled = YES;
 }
 
 @end
