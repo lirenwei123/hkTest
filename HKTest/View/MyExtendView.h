@@ -14,7 +14,6 @@
 
 
 @class myBtn;
-
 @interface MyExtendView : UIView
 //
 @property(nonatomic,strong) NSIndexPath* path;
@@ -25,5 +24,7 @@
 //
 @property(nonatomic,strong) void(^TouchBlock)(myBtn*btn,myCellModle*model,NSIndexPath*path);
 @property(nonatomic,strong)NSArray<JRDDModel *>* jrddModels;
+
+@property(nonatomic,strong)myBtn *hqUpDownBtn;
 
 @end

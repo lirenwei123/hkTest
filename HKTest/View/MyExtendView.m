@@ -33,64 +33,86 @@
 }
 
 -(void)addCCExtendView {
-        for (int i=0; i<3; i++) {
-            NSString *title = @"";
-            switch (i) {
-                case 0:
-                    title = @"行情";
-                    break;
-                case 1:
-                    title = @"买入";
-                    break;
-                case 2:
-                    title = @"卖出";
-                    break;
-                default:
-                    break;
-            }
-            
-            __weak  typeof(self)  weakSelf = self;
-            myBtn *btn =[[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) img:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *mybtn) {
-                NSLog(@"----------%@:%@---%@",mybtn.lab.text,self.path,self.model);
+    for (int i=0; i<3; i++) {
+        NSString *title = @"";
+        switch (i) {
+            case 0:
+                title = @"行情";
+                break;
+            case 1:
+                title = @"买入";
+                break;
+            case 2:
+                title = @"卖出";
+                break;
+            default:
+                break;
+        }
+        
+        __weak  typeof(self)  weakSelf = self;
+        
+        if (i == 0) {
+            myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
+                NSLog(@"----------%@:%@---%@",btn.lab.text,self.path,self.model);
                 if (weakSelf.TouchBlock) {
-                    weakSelf.TouchBlock(mybtn,weakSelf.model,weakSelf.path);
+                    weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
                 }
-                
-            }andbtnType:1];
+            } andbtnType:BTNTYPHQ];
+            _hqUpDownBtn = btn;
             
             [self addSubview:btn];
+        }else{
+            myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
+                NSLog(@"----------%@:%@---%@",btn.lab.text,self.path,self.model);
+                if (weakSelf.TouchBlock) {
+                    weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
+                }
+            } andbtnType:BTNTYPEUD];
             
-            
+            [self addSubview:btn];
         }
+        
+    }
 }
 
 -(void)addJRDDExtendView  {
-        for (int i=0; i<3; i++) {
-            NSString *title = @"";
-            switch (i) {
-                case 0:
-                    title = @"行情";
-                    break;
-                case 1:
-                    title = @"改单";
-                    break;
-                case 2:
-                    title = @"撤单";
-                    break;
-                default:
-                    break;
-            }
-             __weak  typeof(self)  weakSelf = self;
-            myBtn *btn =[[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) img:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *mybtn) {
-                NSLog(@"----------%@:%@---%@",mybtn.lab.text,self.path,self.model);
+    for (int i=0; i<3; i++) {
+        NSString *title = @"";
+        switch (i) {
+            case 0:
+                title = @"行情";
+                break;
+            case 1:
+                title = @"改单";
+                break;
+            case 2:
+                title = @"撤单";
+                break;
+            default:
+                break;
+        }
+        __weak  typeof(self)  weakSelf = self;
+        if (i == 0) {
+            myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
+                NSLog(@"----------%@:%@---%@",btn.lab.text,self.path,self.model);
                 if (weakSelf.TouchBlock) {
-                    weakSelf.TouchBlock(mybtn,weakSelf.model,weakSelf.path);
+                    weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
                 }
-                
-            }andbtnType:1];
+            } andbtnType:BTNTYPHQ];
+            _hqUpDownBtn = btn;
+            [self addSubview:btn];
+        }else{
+            myBtn *btn = [[myBtn alloc]initWithFrame:CGRectMake(MARGIN+(MARGIN +btnW)*(i%3), (10+btnH)*(i/3), btnW, btnH) normalImg:[UIImage imageNamed:@"1.jpg"] disableImg:[UIImage imageNamed:@"1.jpg"] title:title touchEvent:^(myBtn *btn) {
+                NSLog(@"----------%@:%@---%@",btn.lab.text,self.path,self.model);
+                if (weakSelf.TouchBlock) {
+                    weakSelf.TouchBlock(btn,weakSelf.model,weakSelf.path);
+                }
+            } andbtnType:BTNTYPEUD];
             
             [self addSubview:btn];
         }
+        
+    }
     //
     UIView *line = [[UIView alloc]initWithFrame:CGRectMake(0, btnH+5, self.bounds.size.width, 2)];
     line.backgroundColor =  [UIColor lightGrayColor];

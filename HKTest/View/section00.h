@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void(^btnClick)();
+typedef void(^btnClick)(void);
 @interface section00 : UIView
 //
 @property(nonatomic,strong)btnClick ZQ;
